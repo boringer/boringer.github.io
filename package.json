@@ -2,6 +2,10 @@
   "name": "boringer.github.io",
   "version": "0.0.1",
   "scripts": {
+    "build": "gulp",
+    "build-watch": "gulp watch",
+    "start": "hs -c-1 -o -p 9999",
+    "dev": "npm run build-watch & npm start",
     "test": ""
   },
   "repository": {
@@ -17,6 +21,8 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-babel": "^6.1.2",
     "gulp-uglify": "^3.0.0",
-    "http-server": "^0.10.0"
+    "http-server": "^0.10.0",
+    "webpack": "^3.3.0",
+    "webpack-stream": "^3.2.0"
   }
 }
