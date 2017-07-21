@@ -15,7 +15,7 @@ function copy(type) {
 
 function js(done) {
 	gulp.src(paths.js.src)
-		.pipe(webpackStream(require('./webpack.config.js'), webpack))
+		.pipe(webpackStream(require('./webpack.config'), webpack))
 		.pipe(babel({
 			presets: [
 				'env',
@@ -42,7 +42,10 @@ const paths = {
 	},
 	js: {
 		src: './src/js/app.js',
-		watch: './src/js/*.js',
+		watch: [
+			'./src/**/*.js',
+			'./src/**/*.json',
+		],
 		dest: './js/',
 	}
 };
