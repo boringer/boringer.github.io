@@ -4,6 +4,14 @@ html {
 
 
 
+.sentence {
+	font-style: italic;
+
+	&:empty {
+		visibility: hidden;
+	}
+}
+
 .en {
 	&::before,
 	&::after {
