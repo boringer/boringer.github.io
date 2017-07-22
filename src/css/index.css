@@ -15,6 +15,6 @@ html {
 		content: '“';
 	}
 	&::after {
-		content: '“';
+		content: '”';
 	}
 }
