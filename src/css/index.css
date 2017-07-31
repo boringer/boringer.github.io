@@ -6,23 +6,5 @@ html {
 
 .sentence {
 	font-style: italic;
-
-	&:empty {
-		visibility: hidden;
-	}
-}
-
-.en {
-	&::before,
-	&::after {
-		content: '"';
-	}
-}
-.zh {
-	&::before {
-		content: '“';
-	}
-	&::after {
-		content: '”';
-	}
+	margin: 1em;
 }

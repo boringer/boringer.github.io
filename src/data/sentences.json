@@ -1,14 +1,6 @@
 [
-	{
-		"en": "Every coder says he can write HTML, CSS or JS, except web front-end coders.",
-		"zh": "每个码农都说他会写 HTML、CSS 或者 JS，除了 web 前端码农。"
-	},
-	{
-		"en": "Any application that can be written in JS, will eventually be written in JS.",
-		"zh": "任何可以用 JS 编写的应用，最终都将用 JS 编写。"
-	},
-	{
-		"en": "Never hate your enemies, it affects your judgement.",
-		"zh": "永远不要恨你的敌人，那会影响你的判断。"
-	}
+	"Every coder says he can write HTML, CSS or JS, except web front-end coders.",
+	"Any application that can be written in JS, will eventually be written in JS.",
+	"Never hate your enemies, it affects your judgement.",
+	"Boys like these, younger than these, their arms torn out, their legs ripped off. But there is nothing like the sight of an amputated spirit. There is no prosthetic for that."
 ]
