@@ -1,10 +1,53 @@
-html {
-	font-family: system-ui;
+html,
+body {
+	height: 100%;
+
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 0;
 }
 
+.words {
+	&:empty::before {
+		content: "";
+		display: inline-block;
+		width: 2em;
+		height: 2em;
+		border: 2px solid deepskyblue;
+		border-right-color: transparent;
+		border-radius: 50%;
+		margin: auto;
+		animation: loading 1s linear infinite;
+	}
+	&:not(:empty)::after {
+		content: "";
+		display: inline-block;
+		vertical-align: text-bottom;
+		width: 0.6em;
+		height: 3px;
+		background: currentColor;
+	}
+	&.waiting::after {
+		animation: cursor 1s steps(1) infinite;
+	}
+}
 
+@keyframes loading {
+	100% {
+		transform: rotate(1turn);
+	}
+}
 
-.sentence {
-	font-style: italic;
-	margin: 1em;
+@keyframes cursor {
+	0%,
+	100% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
 }
