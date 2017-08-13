@@ -4,7 +4,7 @@ class Typer {
 	constructor(words, element) {
 		this.words = words;
 		this.element = element;
-		this.typeHandler = this.element
+		this.output = this.element
 			? (words) => {
 				this.element.innerHTML = words;
 			}
@@ -24,7 +24,7 @@ class Typer {
 			return;
 		}
 
-		this.typeHandler(this.words.slice(0, this.index + 1));
+		this.output(this.words.slice(0, this.index + 1));
 		this.index++;
 
 		const delay = this.getDelay(char);
