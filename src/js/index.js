@@ -18,10 +18,6 @@ class Typer {
 		const char = this.words[this.index];
 
 		if (!char) {
-			if (this.element) {
-
-			}
-
 			return;
 		}
 
