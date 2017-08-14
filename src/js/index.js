@@ -38,10 +38,7 @@ class Typer {
 	getDelay(char) {
 		switch (char) {
 			case ',':
-				return 400;
-
-			case '.':
-				return 600;
+				return 500;
 
 			default:
 				return 150;
