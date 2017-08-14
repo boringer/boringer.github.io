@@ -5,8 +5,8 @@ class Typer {
 		this.words = words;
 		this.element = element;
 		this.output = this.element
-			? (words) => {
-				this.element.innerHTML = words;
+			? (string) => {
+				this.element.insertAdjacentText('beforeend', string);
 			}
 			: console.log;
 	}
@@ -24,7 +24,7 @@ class Typer {
 			return;
 		}
 
-		this.output(this.words.slice(0, this.index + 1));
+		this.output(char);
 		this.index++;
 
 		const delay = this.getDelay(char);
