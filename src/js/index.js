@@ -12,20 +12,24 @@ class Typer {
 	}
 
 	index = 0;
+	waitingTimer = null;
 
 	type() {
 		const char = this.words[this.index];
 
 		if (!char) {
 			if (this.element) {
-				this.element.classList.add('waiting');
+
 			}
 
 			return;
 		}
 
+		this.abortWaiting();
 		this.output(char);
 		this.index++;
+
+		this.wait();
 
 		const delay = this.getDelay(char);
 		setTimeout(this.type.bind(this), delay);
@@ -43,8 +47,20 @@ class Typer {
 				return 150;
 		}
 	}
+
+	wait() {
+		this.waitingTimer = setTimeout(() => {
+			this.element.classList.add('waiting');
+		}, 200);
+	}
+
+	abortWaiting() {
+		this.element.classList.remove('waiting');
+		clearTimeout(this.waitingTimer);
+		this.waitingTimer = null;
+	}
 }
 
 setTimeout(() => {
 	new Typer('Here\'s nothing, you idiot!', document.getElementById('words')).type();
-}, 4000);
+}, Math.round(Math.random() * 2000) + 3000);
