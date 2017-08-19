@@ -33,6 +33,9 @@ class Typer {
 			case ',':
 				return 500;
 
+			case '!':
+				return 1000;
+
 			default:
 				return 150;
 		}
@@ -59,5 +62,5 @@ class Typer {
 }
 
 setTimeout(() => {
-	new Typer('Here\'s nothing, you idiot!', document.getElementById('words')).type();
+	new Typer('Here\'s nothing, you idiot! :)', document.getElementById('words')).type();
 }, Math.round(Math.random() * 2000) + 3000);
