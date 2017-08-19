@@ -43,14 +43,18 @@ class Typer {
 
 	wait() {
 		this.waitingTimer = setTimeout(() => {
-			this.element.classList.add('waiting');
+			this.element.classList.add(this.waitingClass);
 		}, 200);
 	}
 
 	abortWaiting() {
-		this.element.classList.remove('waiting');
+		this.element.classList.remove(this.waitingClass);
 		clearTimeout(this.waitingTimer);
 		this.waitingTimer = null;
+	}
+
+	get waitingClass() {
+		return 'waiting';
 	}
 }
 
