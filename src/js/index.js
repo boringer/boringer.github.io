@@ -11,9 +11,6 @@ class Typer {
 			: console.log;
 	}
 
-	index = 0;
-	waitingTimer = null;
-
 	type() {
 		const char = this.words[this.index];
 
@@ -56,6 +53,9 @@ class Typer {
 	get waitingClass() {
 		return 'waiting';
 	}
+
+	index = 0;
+	waitingTimer = null;
 }
 
 setTimeout(() => {
