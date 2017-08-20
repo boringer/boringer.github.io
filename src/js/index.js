@@ -1,4 +1,5 @@
 import '../css/index.css';
+import 'core-js/fn/string/at';
 
 class Typer {
 	constructor(words, element) {
@@ -12,7 +13,7 @@ class Typer {
 	}
 
 	type() {
-		const char = this.words[this.index];
+		const char = this.words.at(this.index);
 
 		if (!char) {
 			return;
@@ -20,7 +21,7 @@ class Typer {
 
 		this.abortWaiting();
 		this.output(char);
-		this.index++;
+		this.index += char.length;
 
 		this.wait();
 
@@ -62,5 +63,5 @@ class Typer {
 }
 
 setTimeout(() => {
-	new Typer('Here\'s nothing, you idiot! :)', document.getElementById('words')).type();
+	new Typer('Here\'s nothing, you idiot! 😮', document.getElementById('words')).type();
 }, Math.round(Math.random() * 2000) + 3000);
