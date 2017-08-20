@@ -2,7 +2,7 @@
   "name": "boringer.github.io",
   "version": "0.1.0",
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server",
     "dev": "npm start",
     "build": "webpack -p",
     "test": ""
