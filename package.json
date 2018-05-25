@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/boringer/boringer.github.io.git"
   },
-  "author": "Boring <boringer@qq.com>",
+  "author": "Boring <boringwang@qq.com>",
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
