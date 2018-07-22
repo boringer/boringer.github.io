@@ -1,17 +1,16 @@
 {
-  "name": "boringer.github.io",
+  "name": "boringwong.github.io",
   "version": "0.1.0",
   "scripts": {
     "start": "webpack-dev-server",
     "dev": "npm start",
-    "build": "webpack -p",
-    "test": ""
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/boringer/boringer.github.io.git"
+    "url": "git+https://github.com/boringwong/boringwong.github.io.git"
   },
-  "author": "Boring <boringwang@qq.com>",
+  "author": "Boring <boring@boring.wang>",
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
