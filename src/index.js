@@ -1,4 +1,4 @@
-import '../css/index.css';
+import './index.css';
 import 'core-js/fn/string/at';
 
 class Typer {

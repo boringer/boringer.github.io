@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "scripts": {
     "start": "webpack-dev-server",
-    "dev": "npm start",
-    "build": "webpack -p"
+    "build": "webpack -p && cp ./src/static/* ./dist/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d ./dist/ -m 'Deploy'"
   },
   "repository": {
     "type": "git",

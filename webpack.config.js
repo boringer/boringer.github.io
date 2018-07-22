@@ -5,11 +5,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	entry: {
-		index: './src/js/index.js'
+		index: './src/index.js'
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'js/[name]-[chunkhash].js'
+		filename: '[name]-[chunkhash].js'
 	},
 	devServer: {
 		port: 9999,
@@ -37,7 +37,7 @@ module.exports = {
 		new CleanPlugin([
 			'dist'
 		]),
-		new ExtractTextPlugin('css/[name]-[contenthash].css'),
+		new ExtractTextPlugin('[name]-[contenthash].css'),
 		new HtmlPlugin({
 			template: './src/index.html'
 		})
