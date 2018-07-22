@@ -2,66 +2,66 @@ import './index.css';
 import 'core-js/fn/string/at';
 
 class Typer {
-	constructor(words, element) {
-		this.words = words;
-		this.element = element;
-		this.output = this.element
-			? (string) => {
-				this.element.insertAdjacentText('beforeend', string);
-			}
-			: console.log;
-	}
+    constructor(words, element) {
+        this.words = words;
+        this.element = element;
+        this.output = this.element
+            ? (string) => {
+                this.element.insertAdjacentText('beforeend', string);
+            }
+            : console.log;
+    }
 
-	type() {
-		const char = this.words.at(this.index);
+    type() {
+        const char = this.words.at(this.index);
 
-		if (!char) {
-			return;
-		}
+        if (!char) {
+            return;
+        }
 
-		this.abortWaiting();
-		this.output(char);
-		this.index += char.length;
+        this.abortWaiting();
+        this.output(char);
+        this.index += char.length;
 
-		this.wait();
+        this.wait();
 
-		const delay = this.getDelay(char);
-		setTimeout(this.type.bind(this), delay);
-	}
+        const delay = this.getDelay(char);
+        setTimeout(this.type.bind(this), delay);
+    }
 
-	getDelay(char) {
-		switch (char) {
-			case ',':
-				return 500;
+    getDelay(char) {
+        switch (char) {
+            case ',':
+                return 500;
 
-			case '!':
-				return 1000;
+            case '!':
+                return 1000;
 
-			default:
-				return 150;
-		}
-	}
+            default:
+                return 150;
+        }
+    }
 
-	wait() {
-		this.waitingTimer = setTimeout(() => {
-			this.element.classList.add(this.waitingClass);
-		}, 200);
-	}
+    wait() {
+        this.waitingTimer = setTimeout(() => {
+            this.element.classList.add(this.waitingClass);
+        }, 200);
+    }
 
-	abortWaiting() {
-		this.element.classList.remove(this.waitingClass);
-		clearTimeout(this.waitingTimer);
-		this.waitingTimer = null;
-	}
+    abortWaiting() {
+        this.element.classList.remove(this.waitingClass);
+        clearTimeout(this.waitingTimer);
+        this.waitingTimer = null;
+    }
 
-	get waitingClass() {
-		return 'waiting';
-	}
+    get waitingClass() {
+        return 'waiting';
+    }
 
-	index = 0;
-	waitingTimer = null;
+    index = 0;
+    waitingTimer = null;
 }
 
 setTimeout(() => {
-	new Typer('Here\'s nothing, you idiot! 😮', document.getElementById('words')).type();
+    new Typer('Here\'s nothing, you idiot! 😮', document.getElementById('words')).type();
 }, Math.round(Math.random() * 2000) + 3000);
