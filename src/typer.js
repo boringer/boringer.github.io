@@ -11,7 +11,7 @@ class Typer {
     /**
      * @param {string} text
      */
-    type(text) {
+    async type(text) {
         const char = text.at(0);
 
         if (!char) {
@@ -21,13 +21,8 @@ class Typer {
         this.abortWaiting();
         this.output(char);
 
-        this.wait();
-
-        const delay = this.getDelay(char);
-
-        setTimeout(() => {
-            this.type(text.slice(char.length));
-        }, delay);
+        await this.wait(this.getDelay(char));
+        this.type(text.slice(char.length));
     }
 
     /**
@@ -38,7 +33,7 @@ class Typer {
     }
 
     /**
-     * Determine the delay (ms) before typing the next character.
+     * Determine the delay (ms) according to the separator.
      * @param {string} char
      * @returns {number}
      */
@@ -55,10 +50,18 @@ class Typer {
         }
     }
 
-    wait() {
-        this.waitingTimer = setTimeout(() => {
-            this.element.classList.add(this.constructor.WAITING_CLASS);
-        }, 200);
+    /**
+     * Wait before typing the next character.
+     * @param {number} delay
+     */
+    wait(delay) {
+        return new Promise((resolve) => {
+            this.waitingTimer = setTimeout(() => {
+                this.element.classList.add(this.constructor.WAITING_CLASS);
+            }, 200);
+
+            setTimeout(resolve, delay);
+        });
     }
 
     abortWaiting() {
