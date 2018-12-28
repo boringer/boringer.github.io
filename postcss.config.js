@@ -1,7 +1,7 @@
 module.exports = {
-    plugins: {
-        'postcss-cssnext': {
-            browsers: 'defaults, ios >= 8'
-        }
-    }
+    plugins: [
+        require('postcss-preset-env')({
+            stage: 0
+        })
+    ]
 };
