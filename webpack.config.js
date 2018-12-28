@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -40,6 +41,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name]-[contenthash].css'
         }),
+        new OptimizeCssAssetsPlugin(),
         new HtmlPlugin({
             template: './src/index.html'
         })
