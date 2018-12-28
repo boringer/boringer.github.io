@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
@@ -19,12 +19,13 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    use: [
-                        'css-loader',
-                        'postcss-loader',
-                    ]
-                })
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    'css-loader',
+                    'postcss-loader'
+                ]
             },
             {
                 test: /\.js$/,
@@ -37,7 +38,9 @@ module.exports = {
         new CleanPlugin([
             'dist'
         ]),
-        new ExtractTextPlugin('[name]-[contenthash].css'),
+        new MiniCssExtractPlugin({
+            filename: '[name]-[contenthash].css'
+        }),
         new HtmlPlugin({
             template: './src/index.html'
         })
