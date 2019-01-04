@@ -33,7 +33,7 @@ class Typer {
     }
 
     /**
-     * Determine the delay (ms) according to the separator.
+     * Determine the delay (ms) according to the character just typed.
      * @param {string} char
      * @returns {number}
      */
