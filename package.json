@@ -1,5 +1,5 @@
 {
-  "name": "boringwong.github.io",
+  "name": "gnirob.github.io",
   "version": "0.1.0",
   "scripts": {
     "start": "webpack-dev-server",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/boringwong/boringwong.github.io.git"
+    "url": "git+https://github.com/gnirob/gnirob.github.io.git"
   },
   "author": "Boring <boring@boring.wang>",
   "license": "UNLICENSED",
