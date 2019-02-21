@@ -6,7 +6,6 @@ class Typer {
     }
 
     async type(text: string) {
-        // @ts-ignore
         const char = text.at(0);
 
         if (!char) {
