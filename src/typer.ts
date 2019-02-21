@@ -1,17 +1,12 @@
 import 'core-js/fn/string/at';
 
 class Typer {
-    /**
-     * @param {HTMLElement} element
-     */
-    constructor(element) {
+    constructor(element: HTMLElement) {
         this.element = element;
     }
 
-    /**
-     * @param {string} text
-     */
-    async type(text) {
+    async type(text: string) {
+        // @ts-ignore
         const char = text.at(0);
 
         if (!char) {
@@ -25,19 +20,14 @@ class Typer {
         this.type(text.slice(char.length));
     }
 
-    /**
-     * @param {string} string
-     */
-    output(string) {
+    private output(string: string) {
         this.element.insertAdjacentText('beforeend', string);
     }
 
     /**
      * Determine the delay (ms) according to the character just typed.
-     * @param {string} char
-     * @returns {number}
      */
-    getDelay(char) {
+    private getDelay(char: string) {
         switch (char) {
             case ',':
                 return 500;
@@ -52,35 +42,27 @@ class Typer {
 
     /**
      * Wait before typing the next character.
-     * @param {number} delay
      */
-    wait(delay) {
+    private wait(delay: number) {
         return new Promise((resolve) => {
             this.waitingTimer = setTimeout(() => {
-                this.element.classList.add(this.constructor.WAITING_CLASS);
+                this.element.classList.add(Typer.WAITING_CLASS);
             }, 200);
 
             setTimeout(resolve, delay);
         });
     }
 
-    abortWaiting() {
-        this.element.classList.remove(this.constructor.WAITING_CLASS);
+    private abortWaiting() {
+        this.element.classList.remove(Typer.WAITING_CLASS);
         clearTimeout(this.waitingTimer);
         this.waitingTimer = null;
     }
 
-    /**
-     * @type {HTMLElement}
-     */
-    element;
+    private element: HTMLElement;
+    private waitingTimer: NodeJS.Timeout;
 
-    /**
-     * @type {NodeJS.Timeout}
-     */
-    waitingTimer = null;
-
-    static WAITING_CLASS = 'waiting';
+    private static WAITING_CLASS = 'waiting';
 }
 
 export default Typer;

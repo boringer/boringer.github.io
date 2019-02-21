@@ -4,16 +4,23 @@ const CleanPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
+/**
+ * @type {import('webpack').WebpackOptions}
+ */
 module.exports = {
     entry: {
-        index: './src/index.js'
+        index: './src/index.ts'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name]-[chunkhash].js'
     },
     devServer: {
-        open: true
+        open: true,
+        contentBase: './src/static/'
+    },
+    resolve: {
+        extensions: ['.ts', '.js']
     },
     module: {
         rules: [
@@ -28,7 +35,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.js$/,
+                test: /\.[tj]s$/,
                 exclude: /node_modules/,
                 use: 'babel-loader'
             }
