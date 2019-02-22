@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 /**
- * @type {import('webpack').WebpackOptions}
+ * @type {import('webpack').Configuration}
  */
 module.exports = {
     entry: {
@@ -19,6 +19,7 @@ module.exports = {
         open: true,
         contentBase: './src/static/'
     },
+    devtool: 'source-map',
     resolve: {
         extensions: ['.ts', '.js']
     },
@@ -48,7 +49,13 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name]-[contenthash].css'
         }),
-        new OptimizeCssAssetsPlugin(),
+        new OptimizeCssAssetsPlugin({
+            cssProcessorOptions: {
+                map: {
+                    annotation: true
+                }
+            }
+        }),
         new HtmlPlugin({
             template: './src/index.html'
         })
