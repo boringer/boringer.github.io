@@ -23,9 +23,6 @@ class Typer {
         this.element.insertAdjacentText('beforeend', string)
     }
 
-    /**
-     * Determine the delay (ms) according to the character just typed.
-     */
     private getDelay(char: string) {
         switch (char) {
             case ',':
@@ -39,9 +36,6 @@ class Typer {
         }
     }
 
-    /**
-     * Wait before typing the next character.
-     */
     private wait(delay: number) {
         return new Promise((resolve) => {
             this.waitingTimer = setTimeout(() => {
