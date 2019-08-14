@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    background: white;
 }
 body {
     display: flex;
@@ -12,7 +13,7 @@ body {
 
 .words {
     &:empty::before {
-        content: "";
+        content: '';
         display: inline-block;
         width: 2em;
         height: 2em;
@@ -23,7 +24,7 @@ body {
         animation: loading 1s linear infinite;
     }
     &:not(:empty)::after {
-        content: "";
+        content: '';
         display: inline-block;
         vertical-align: text-bottom;
         width: 0.6em;
@@ -32,6 +33,13 @@ body {
     }
     &.waiting::after {
         animation: cursor 1s steps(1) infinite;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    html,
+    .words:empty::before {
+        filter: invert(1);
     }
 }
 
@@ -44,9 +52,9 @@ body {
 @keyframes cursor {
     0%,
     100% {
-        opacity: 0;
+        visibility: hidden;
     }
     50% {
-        opacity: 1;
+        visibility: visible;
     }
 }
