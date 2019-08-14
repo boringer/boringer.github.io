@@ -4,4 +4,4 @@ module.exports = {
             stage: 0
         })
     ]
-};
+}

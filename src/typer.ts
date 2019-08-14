@@ -1,26 +1,26 @@
-import 'core-js/fn/string/at';
+import 'core-js/fn/string/at'
 
 class Typer {
     constructor(element: HTMLElement) {
-        this.element = element;
+        this.element = element
     }
 
     async type(text: string) {
-        const char = text.at(0);
+        const char = text.at(0)
 
         if (!char) {
-            return;
+            return
         }
 
-        this.abortWaiting();
-        this.output(char);
+        this.abortWaiting()
+        this.output(char)
 
-        await this.wait(this.getDelay(char));
-        this.type(text.slice(char.length));
+        await this.wait(this.getDelay(char))
+        this.type(text.slice(char.length))
     }
 
     private output(string: string) {
-        this.element.insertAdjacentText('beforeend', string);
+        this.element.insertAdjacentText('beforeend', string)
     }
 
     /**
@@ -29,13 +29,13 @@ class Typer {
     private getDelay(char: string) {
         switch (char) {
             case ',':
-                return 500;
+                return 500
 
             case '!':
-                return 1000;
+                return 1000
 
             default:
-                return 150;
+                return 150
         }
     }
 
@@ -45,23 +45,23 @@ class Typer {
     private wait(delay: number) {
         return new Promise((resolve) => {
             this.waitingTimer = setTimeout(() => {
-                this.element.classList.add(Typer.WAITING_CLASS);
-            }, 200);
+                this.element.classList.add(Typer.WAITING_CLASS)
+            }, 200)
 
-            setTimeout(resolve, delay);
-        });
+            setTimeout(resolve, delay)
+        })
     }
 
     private abortWaiting() {
-        this.element.classList.remove(Typer.WAITING_CLASS);
-        clearTimeout(this.waitingTimer);
-        this.waitingTimer = null;
+        this.element.classList.remove(Typer.WAITING_CLASS)
+        clearTimeout(this.waitingTimer)
+        this.waitingTimer = null
     }
 
-    private element: HTMLElement;
-    private waitingTimer: NodeJS.Timeout;
+    private element: HTMLElement
+    private waitingTimer: NodeJS.Timeout
 
-    private static WAITING_CLASS = 'waiting';
+    private static WAITING_CLASS = 'waiting'
 }
 
-export default Typer;
+export default Typer
