@@ -15,28 +15,28 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
-    "@babel/core": "^7.3.3",
-    "@babel/plugin-proposal-class-properties": "^7.3.3",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.3.1",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-typescript": "^7.3.3",
-    "@babel/runtime": "^7.3.1",
-    "@types/core-js": "^2.5.0",
-    "@types/node": "^11.9.4",
-    "babel-loader": "^8.0.5",
-    "clean-webpack-plugin": "^1.0.1",
-    "css-loader": "^2.1.0",
-    "gh-pages": "^2.0.1",
+    "@babel/runtime": "^7.5.5",
+    "@types/core-js": "^2.5.2",
+    "@types/node": "^12.7.1",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "gh-pages": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.5.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
-    "postcss-preset-env": "^6.5.0",
-    "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.0"
+    "postcss-preset-env": "^6.7.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.2.5"
+    "@babel/polyfill": "^7.4.4"
   }
 }
