@@ -3,6 +3,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 /**
  * @type {import('webpack').Configuration}
@@ -56,6 +57,12 @@ module.exports = {
         }),
         new HtmlPlugin({
             template: './src/index.html'
-        })
+        }),
+        new CopyPlugin([
+            {
+                from: './src/static/',
+                to: './'
+            }
+        ])
     ]
 };
