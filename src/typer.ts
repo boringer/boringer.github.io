@@ -16,7 +16,7 @@ class Typer {
         this.output(char)
 
         await this.wait(this.getDelay(char))
-        this.type(text.slice(char.length))
+        await this.type(text.slice(char.length))
     }
 
     private output(string: string) {
