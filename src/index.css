@@ -12,6 +12,8 @@ body {
 }
 
 .words {
+    font-family: monospace;
+
     &:empty::before {
         content: '';
         display: inline-block;
