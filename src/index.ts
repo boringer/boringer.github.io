@@ -6,6 +6,6 @@ setTimeout(async () => {
         "Here's nothing, you idiot! 😮"
     )
     setTimeout(() => {
-        location.assign('https://yuja.wang')
+        location.assign('https://live.bilibili.com/22363472')
     }, 2000)
 }, Math.random() * 2000 + 3000)
