@@ -12,4 +12,4 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build and deploy
-        run: npm run deploy -- -u 'Boring <boring@boring.wang>' -r 'https://gnirob:${{secrets.TOKEN}}@github.com/gnirob/gnirob.github.io.git'
+        run: npm run deploy -- -u 'Boring <boring@boring.wang>' -r 'https://bflatmajor:${{secrets.TOKEN}}@github.com/bflatmajor/bflatmajor.github.io.git'
